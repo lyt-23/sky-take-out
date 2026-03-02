@@ -26,4 +26,15 @@
                 #{createUser},
                 #{updateUser})
     </insert>
+    <select id="pageList" resultType="com.sky.entity.Employee">
+        SELECT
+        *
+        FROM
+        employee
+        <where>
+        <if test="name != null and name != ''">
+            name LIKE CONCAT('%', #{name}, '%')
+        </if>
+        </where>
+    </select>
 </mapper>
