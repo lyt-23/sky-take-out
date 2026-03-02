@@ -97,4 +97,16 @@ public class EmployeeController {
         return Result.success(pageResult);
     }
 
+    /**
+     * 启用禁用员工
+     * @param status
+     * @return
+     */
+    @PostMapping("/status/{status}")
+    public Result updateStatus(@PathVariable Integer status,Long id){
+        log.info("员工状态设置：{},{}", status,id);
+        employeeService.updateStatus(status,id);
+        return Result.success();
+    }
+
 }
