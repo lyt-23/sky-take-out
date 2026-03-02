@@ -109,4 +109,29 @@ public class EmployeeController {
         return Result.success();
     }
 
+    /**
+     * 查询回显
+     *
+     * @retrun
+     */
+
+    @GetMapping("/{id}")
+    public Result<Employee> list(@PathVariable Long id){
+        log.info("当前查询id：{}", id);
+        Employee employee = employeeService.list(id);
+        return Result.success(employee);
+    }
+
+    /**
+     * 修改员工信息
+     *
+     * @return
+     */
+    @PutMapping()
+    public Result modify(@RequestBody EmployeeDTO employeeDTO){
+        log.info("修改员工信息：{}", employeeDTO);
+        employeeService.modify(employeeDTO);
+        return Result.success();
+    }
+
 }

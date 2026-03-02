@@ -67,4 +67,9 @@
         </if>
         </where>
     </select>
+    <select id="findById" resultType="com.sky.entity.Employee">
+        select *
+        from employee
+        where id = #{id}
+    </select>
 </mapper>
